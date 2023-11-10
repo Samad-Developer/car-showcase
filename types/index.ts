@@ -39,3 +39,17 @@ export interface FilterProps {
         limit: number;
         model: string;
 }
+
+export interface OptionProps {
+    title: string;
+    value: string;
+}
+export interface CustomFilterProps {
+    title: string;
+    options: OptionProps[];
+}
+
+export interface showMoreProps {
+    pageNumber: number;
+    isNext: boolean;
+}
