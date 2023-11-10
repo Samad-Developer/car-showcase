@@ -3,10 +3,11 @@ import { fetchCars } from '@/utils'
 import Image from 'next/image'
 import { CarCard } from '@/components'
 import { fuels, yearsOfProduction } from '@/constants'
-export default async function Home({ searchParams }) {
+import { HomeProps } from '@/types'
+export default async function Home({ searchParams }:HomeProps) {
   const allCars = await fetchCars({
     manufacturer: searchParams.manufacturer || '',
-    year: searchParams.model || 2022,
+    year: Number(searchParams.model) || 2022,
     fuel: searchParams.fuel || '',
     limit: searchParams.limit || 10,
     model: searchParams.model || '',
@@ -39,7 +40,7 @@ export default async function Home({ searchParams }) {
               </div>
               <ShowMore
                pageNumber = {(searchParams.limit || 10)/10}
-               isNext = {(searchParams.limit || 10 > allCars.length)}
+               isNext = {(searchParams.limit > allCars.length)}
               />
             </section>
           ): (

@@ -45,3 +45,4 @@ export const updateSearchParams = (type:string, value:string) => {
     const newPathname = `${window.location.pathname}?${serchParams.toString()}`
     return newPathname;
 }
+
